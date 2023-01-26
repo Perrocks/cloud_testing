@@ -7,18 +7,18 @@ const ChartContainer = ({ genres }) => {
 
   useEffect(() => {
     loadSongs(genres[0].url);
-  }, [genres])
+  }, [genres]);
 
   const loadSongs = url => {
     fetch(url)
       .then(res => res.json())
       .then(songsList => setSongs(songsList.feed.entry))
       .catch(err => console.error(err));
-  }
+  };
 
   const handleSelectChange = event => {
     loadSongs(event.target.value);
-  }
+  };
 
   return (
     <>
@@ -33,6 +33,6 @@ const ChartContainer = ({ genres }) => {
       />
     </>
   );
-}
+};
 
 export default ChartContainer;

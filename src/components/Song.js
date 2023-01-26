@@ -1,22 +1,22 @@
 import React, { useEffect, useState, useRef } from 'react';
 
 function Song({title, artist, position, image, audio}) {
-  const [isPlaying, setIsPlaying] = useState(null)
-  const audioSrc = useRef(null)
+  const [isPlaying, setIsPlaying] = useState(null);
+  const audioSrc = useRef(null);
 
   const altTag = `${title} by ${artist}`;
 
   const handlePlayPause = () => {
     setIsPlaying(!isPlaying);
-  }
+  };
 
   useEffect(() => {
     if (isPlaying === null) {
       return;
     }
 
-    isPlaying ? audioSrc.current.play() : audioSrc.current.pause()
-  }, [isPlaying])
+    isPlaying ? audioSrc.current.play() : audioSrc.current.pause();
+  }, [isPlaying]);
 
   return (
     <div className="song">
